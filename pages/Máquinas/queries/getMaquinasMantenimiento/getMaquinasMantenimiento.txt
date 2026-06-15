@@ -1,0 +1,3 @@
+SELECT COUNT(*) AS en_mantenimiento
+FROM maquinas 
+WHERE estado = 'Mantenimiento'

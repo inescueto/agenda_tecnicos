@@ -1,0 +1,3 @@
+UPDATE maquinas 
+SET estado = {{ SelectEst.selectedOptionValue }} 
+WHERE id_maquina = {{ appsmith.store.idMaquinaEditando }}

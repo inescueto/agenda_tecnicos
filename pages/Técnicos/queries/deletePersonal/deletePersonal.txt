@@ -1,0 +1,14 @@
+START TRANSACTION;
+
+-- 1. Eliminamos ÚNICAMENTE los turnos futuros del cuadrante (desde hoy en adelante)
+DELETE FROM asignaciones 
+WHERE (id_tecnico1 = {{ appsmith.store.id_borrar }} OR id_tecnico2 = {{ appsmith.store.id_borrar }})
+  AND fecha >= CURDATE();
+
+-- 2. Desactivamos al técnico (Soft Delete) manteniendo su histórico médico intacto
+UPDATE personal 
+SET estado = 'inactivo' 
+WHERE id_tecnico = {{ appsmith.store.id_borrar }};
+
+COMMIT;
+

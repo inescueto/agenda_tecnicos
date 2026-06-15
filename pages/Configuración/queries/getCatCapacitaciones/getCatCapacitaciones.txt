@@ -1,0 +1,5 @@
+SELECT cc.*, cat.nombre_categoria, m.nombre_modalidad as modalidad
+FROM catalogo_capacitaciones cc 
+JOIN categorias_capacitaciones cat ON cc.id_categoria = cat.id_categoria 
+LEFT JOIN modalidades m ON cc.id_modalidad = m.id_modalidad
+ORDER BY cat.id_categoria, cc.id_requisito;

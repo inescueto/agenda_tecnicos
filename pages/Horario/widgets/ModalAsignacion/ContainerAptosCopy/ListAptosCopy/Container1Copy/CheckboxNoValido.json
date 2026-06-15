@@ -1,0 +1,67 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "defaultCheckedState": "{{ \n  (appsmith.store.tecnicosElegidos || []).some(t => String(t.id) === String(currentItem.id_tecnico)) \n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultCheckedState"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onCheckChange"
+    },
+    {
+      "key": "defaultCheckedState"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onCheckChange"
+    }
+  ],
+  "isDisabled": "{{ !!currentItem.esta_ocupado }}",
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "pu2kobdn0f",
+  "label": "",
+  "labelPosition": "Left",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 3,
+  "needsErrorInfo": false,
+  "onCheckChange": "{{  ValidacionJS.toggleTecnico(currentItem, CheckboxNoValido.isChecked) \n}}",
+  "parentColumnSpace": 5.3076171875,
+  "parentId": "80lsvsqzqj",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 6,
+  "topRow": 0,
+  "type": "CHECKBOX_WIDGET",
+  "version": 1,
+  "widgetId": "b09t5mb6e0",
+  "widgetName": "CheckboxNoValido"
+}

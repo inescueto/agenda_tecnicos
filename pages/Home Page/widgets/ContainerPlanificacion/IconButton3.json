@@ -1,0 +1,40 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "iconName": "clipboard",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "8rrv6524og",
+  "leftColumn": 8,
+  "minWidth": 50,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 8,
+  "mobileRightColumn": 12,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 7.2548828125,
+  "parentId": "4oh2krpgyn",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 12,
+  "topRow": 2,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "yoaw85nxpw",
+  "widgetName": "IconButton3"
+}

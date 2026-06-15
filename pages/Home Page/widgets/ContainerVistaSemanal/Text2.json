@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 8,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "fontSize"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "fontFamily": "Nunito Sans",
+  "fontSize": "0.9\n",
+  "fontStyle": "",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ofm712ytlz",
+  "leftColumn": 2,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 10,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 18,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "originalBottomRow": 10,
+  "originalTopRow": 5,
+  "overflow": "NONE",
+  "parentColumnSpace": 10.0576171875,
+  "parentId": "2vh84gd42t",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 25,
+  "shouldTruncate": false,
+  "text": "{{\n(() => {\n  const today = new Date();\n  const day = today.getDay();\n  const diffToMonday = day === 0 ? -6 : 1 - day;\n\n  const monday = new Date(today);\n  monday.setDate(today.getDate() + diffToMonday);\n\n  const sunday = new Date(monday);\n  sunday.setDate(monday.getDate() + 6);\n\n  const optionsStart = { day: 'numeric', month: 'long' };\n  const optionsEnd = { day: 'numeric', month: 'long', year: 'numeric' };\n\n  return `${monday.toLocaleDateString('es-ES', optionsStart)} - ${sunday.toLocaleDateString('es-ES', optionsEnd)}`;\n})()\n}}\n",
+  "textAlign": "LEFT",
+  "textColor": "#71717a",
+  "topRow": 4,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "3yzqkgs00o",
+  "widgetName": "Text2"
+}

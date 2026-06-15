@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonColor": "{{ \n  currentItem.jue_n === 2 ? '#D4EDDA' : \n  currentItem.jue_n === 1 ? '#FEE2E2' : \n '#F1F5F9'                  \n}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "w8lk05cw70",
+  "leftColumn": 43,
+  "minWidth": 120,
+  "mobileBottomRow": 9,
+  "mobileLeftColumn": 6,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 5,
+  "needsErrorInfo": false,
+  "onClick": "{{  GestionAgendaSemanal.procesarClickCid(\n    currentItem.id_jue_n, \n    currentItem.id_maquina, \n    'Jueves', \n    'Noche', \n    currentItem.modalidad, \n    currentItem.jue_n\n  ) \n}}",
+  "parentColumnSpace": 3.392624855041504,
+  "parentId": "gbsq7kkgh1",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "N",
+  "topRow": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "pivu2cf8go",
+  "widgetName": "ButtonJN"
+}

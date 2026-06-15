@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "697c8f869bb6771f6fd6defb_f734715d-2c33-46a1-9bf4-ffa0fa5b494f",
+  "id": "Home Page_SemanaActual",
+  "unpublishedCollection": {
+    "name": "SemanaActual",
+    "pageId": "Home Page",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

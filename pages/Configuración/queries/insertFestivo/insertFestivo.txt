@@ -1,0 +1,2 @@
+INSERT INTO festivos (fecha, descripcion)
+VALUES ('{{this.params.fecha}}', '{{this.params.descripcion}}');

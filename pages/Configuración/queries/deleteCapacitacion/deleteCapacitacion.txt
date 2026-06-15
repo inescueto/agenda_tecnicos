@@ -1,0 +1,2 @@
+DELETE FROM catalogo_capacitaciones 
+WHERE id_requisito = {{TableCatalogo.triggeredRow.id_requisito}};

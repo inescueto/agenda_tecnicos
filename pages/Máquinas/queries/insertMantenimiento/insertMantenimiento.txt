@@ -1,0 +1,7 @@
+INSERT INTO mantenimiento_maquinas (id_maquina, fecha_inicio, fecha_fin, motivo)
+VALUES (
+    {{ TableMaquinas.triggeredRow.id_maquina }},
+    {{ moment(DateInicio.selectedDate).format('YYYY-MM-DD') }},
+    {{ moment(DateFin.selectedDate).format('YYYY-MM-DD') }},
+    {{ InputMotivo.text }}
+);

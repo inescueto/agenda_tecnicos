@@ -1,0 +1,2 @@
+INSERT INTO agendas_requisitos (id_agenda, id_requisito)
+VALUES ({{ this.params.id_agenda }}, {{ this.params.id_requisito }});

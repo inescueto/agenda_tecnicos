@@ -1,0 +1,95 @@
+{
+  "animateLoading": true,
+  "backgroundColor": "#f3f4f6",
+  "borderColor": "{{appsmith.theme.colors.backgroundColor}}",
+  "borderRadius": "0.375rem",
+  "borderWidth": "0",
+  "bottomRow": 10,
+  "boxShadow": "{{ \n  currentItem.modalidad === 'TC' \n    ? \"0 0 0px 2px #86EFAC\" // Verde (Tomografía)\n    : currentItem.modalidad === 'RM' \n      ? \"0 0 0px 2px #93C5FD\" // Azul (Resonancia)\n      : currentItem.modalidad === 'URGENCIAS' \n        ? \"0 0 0px 2px #FDBA74\" // Naranja (Urgencias)\n        : currentItem.modalidad === 'QUIROFANO' \n          ? \"0 0 0px 2px #C4B5FD\" // Morado (Quirófano)\n          : currentItem.modalidad === 'GENERAL' \n            ? \"0 0 0px 2px #F9A8D4\" // Rosa (General)\n            : \"0 0 8px 1px #F3F4F6\"  // Gris (Por defecto)\n}}",
+  "children": [
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 90,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "bu67qbv88z",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 100,
+      "minWidth": 450,
+      "mobileBottomRow": 100,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 177.84375,
+      "mobileTopRow": 0,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "x85ws0p8jc",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 177.84375,
+      "topRow": 0,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "i06oqkpyzl",
+      "widgetName": "Canvas5Copy"
+    }
+  ],
+  "containerStyle": "card",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderColor"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "stretch",
+  "isCanvas": true,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "nuieqmnpdm",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 10,
+  "minWidth": 450,
+  "mobileBottomRow": 10,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 7.41015625,
+  "parentId": "gd8otu2q1n",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 7,
+  "shouldScrollContents": false,
+  "topRow": 1,
+  "type": "CONTAINER_WIDGET",
+  "version": 1,
+  "widgetId": "x85ws0p8jc",
+  "widgetName": "ContainerTituloS"
+}

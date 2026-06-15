@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonColor": "{{ \n  currentItem.vie_m === 2 ? '#D4EDDA' : \n  currentItem.vie_m === 1 ? '#FEE2E2' : \n '#F1F5F9'                  \n}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "w8lk05cw70",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 9,
+  "mobileLeftColumn": 6,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 5,
+  "needsErrorInfo": false,
+  "onClick": "{{  GestionAgendaSemanal.procesarClickCid(\n    currentItem.id_vie_m, \n    currentItem.id_maquina, \n    'Viernes', \n    'Mañana', \n    currentItem.modalidad, \n    currentItem.vie_n\n  ) \n}}",
+  "parentColumnSpace": 3.392624855041504,
+  "parentId": "64lhm2g0pm",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 22,
+  "text": "M",
+  "topRow": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "vfvbi6tn0j",
+  "widgetName": "ButtonVM"
+}

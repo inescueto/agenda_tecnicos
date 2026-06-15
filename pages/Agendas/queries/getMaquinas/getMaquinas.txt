@@ -1,0 +1,6 @@
+SELECT 
+	m.id_maquina, 
+	m.nombre_maquina, 
+	md.nombre_modalidad AS modalidad 
+FROM maquinas m
+LEFT JOIN modalidades md ON m.id_modalidad = md.id_modalidad;

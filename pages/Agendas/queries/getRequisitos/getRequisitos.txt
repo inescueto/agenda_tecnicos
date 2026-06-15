@@ -1,0 +1,27 @@
+SELECT 
+    CASE 
+        WHEN cc.id_categoria = 3 THEN 'APTITUDES'
+        WHEN cc.id_categoria = 6 THEN 'HORARIOS'
+        ELSE COALESCE(m.nombre_modalidad, 'OTRAS') 
+    END AS label,
+    CASE 
+        WHEN cc.id_categoria = 3 THEN 'APTITUDES'
+        WHEN cc.id_categoria = 6 THEN 'HORARIOS'
+        ELSE COALESCE(m.nombre_modalidad, 'OTRAS') 
+    END AS value,
+    JSON_ARRAYAGG(
+        JSON_OBJECT(
+            'label', cc.nombre_requisito, 
+            'value', cc.id_requisito
+        )
+    ) AS children
+FROM catalogo_capacitaciones cc
+LEFT JOIN modalidades m ON cc.id_modalidad = m.id_modalidad
+GROUP BY label
+ORDER BY 
+    CASE 
+        WHEN label = 'APTITUDES' THEN 1 
+        WHEN label = 'HORARIOS' THEN 2 
+        ELSE 0 
+    END, 
+    label ASC;

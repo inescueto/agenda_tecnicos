@@ -1,0 +1,8 @@
+INSERT INTO catalogo_capacitaciones 
+(id_categoria, nombre_requisito, id_modalidad, id_maquina_ref, id_especialidad_ref)
+VALUES 
+({{SelectCat.selectedOptionValue}}, 
+ {{InputReq.text}}, 
+ {{SelectMod.selectedOptionValue || NULL}},
+ {{SelectMaq.selectedOptionValue || NULL}}, 
+ {{SelectEsp.selectedOptionValue || NULL}});

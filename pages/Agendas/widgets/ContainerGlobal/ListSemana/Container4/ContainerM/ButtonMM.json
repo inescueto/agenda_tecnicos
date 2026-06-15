@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonColor": "{{ \n  currentItem.mar_m === 2 ? '#D4EDDA' : \n  currentItem.mar_m === 1 ? '#FEE2E2' : \n '#F1F5F9'                  \n}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "w8lk05cw70",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 9,
+  "mobileLeftColumn": 6,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 5,
+  "needsErrorInfo": false,
+  "onClick": "{{  GestionAgendaSemanal.procesarClickCid(\n    currentItem.id_mar_m, \n    currentItem.id_maquina, \n    'Martes', \n    'Mañana', \n    currentItem.modalidad, \n    currentItem.mar_m\n  ) \n}}",
+  "parentColumnSpace": 3.392624855041504,
+  "parentId": "mt0csnfug1",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 22,
+  "text": "M",
+  "topRow": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "3wbpugm1b2",
+  "widgetName": "ButtonMM"
+}

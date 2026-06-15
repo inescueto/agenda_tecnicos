@@ -1,0 +1,2 @@
+INSERT INTO maquinas (nombre_maquina, id_modalidad, estado)
+VALUES ({{ Input_Nombre.text }}, {{ SelectModalidad.selectedOptionValue }}, {{ SelectEstado.selectedOptionValue }});

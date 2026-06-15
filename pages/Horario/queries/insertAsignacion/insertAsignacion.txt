@@ -1,0 +1,21 @@
+-- Primero limpiamos si ya existe una asignación para ese hueco (Paso de seguridad)
+DELETE FROM asignaciones 
+WHERE id_agenda = {{ appsmith.store.idAgendaSel }} 
+AND fecha = {{ appsmith.store.fechaSel }};
+
+-- Insertamos la nueva
+INSERT INTO asignaciones (
+    id_agenda,
+    id_tecnico1,
+    id_tecnico2,
+    fecha,
+    hora_inicio,
+    hora_fin
+) VALUES (
+    {{ appsmith.store.idAgendaSel }},
+    {{ appsmith.store.tecnicosElegidos[0]?.id }}, -- Primer técnico (obligatorio por tu JS)
+    {{ appsmith.store.tecnicosElegidos[1]?.id || null }}, -- Segundo técnico (opcional)
+    {{ appsmith.store.fechaSel }},
+    {{ appsmith.store.horaInicioSel }},
+    {{ appsmith.store.horaFinSel }}
+);

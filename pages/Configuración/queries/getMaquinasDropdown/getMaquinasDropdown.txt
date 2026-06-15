@@ -1,0 +1,2 @@
+SELECT id_maquina as value, nombre_maquina as label 
+FROM maquinas;

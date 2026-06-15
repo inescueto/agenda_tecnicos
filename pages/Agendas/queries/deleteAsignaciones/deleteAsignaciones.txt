@@ -1,0 +1,2 @@
+DELETE FROM asignaciones 
+WHERE id_agenda = {{ this.params.id }};

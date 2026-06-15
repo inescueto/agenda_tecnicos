@@ -1,0 +1,10 @@
+SELECT 
+    e.id_especialidad, 
+    e.nombre_especialidad, 
+    md.nombre_modalidad AS modalidad
+FROM especialidades e
+LEFT JOIN modalidades md ON e.id_modalidad = md.id_modalidad
+WHERE md.nombre_modalidad = {{ this.params.modalidad || appsmith.store.modalidadFiltro }}
+   OR COALESCE(md.nombre_modalidad, '') = '' 
+   OR md.nombre_modalidad = 'General';
+

@@ -1,0 +1,5 @@
+UPDATE festivos 
+SET 
+    fecha = '{{TableFestivos.updatedRow.fecha}}', 
+    descripcion = '{{TableFestivos.updatedRow.descripcion}}' 
+WHERE id_festivo = {{TableFestivos.updatedRow.id_festivo}};

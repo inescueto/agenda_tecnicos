@@ -1,0 +1,16 @@
+INSERT INTO asignaciones (
+  id_agenda, 
+  id_tecnico1, 
+  id_tecnico2, 
+  fecha, 
+  hora_inicio, 
+  hora_fin
+)
+VALUES (
+  {{ this.params.id_agenda }}, 
+  {{ this.params.id_t1 ? this.params.id_t1 : null }}, 
+  {{ this.params.id_t2 ? this.params.id_t2 : null }}, 
+  '{{ this.params.fecha }}', 
+  '{{ this.params.h_i }}', 
+  '{{ this.params.h_f }}'
+);

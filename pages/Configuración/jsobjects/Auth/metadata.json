@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "69ea04ccf4cb327f11981332_5c405ce6-5ace-46a2-b93b-d6075bd7e5b3",
+  "id": "Configuración_Auth",
+  "unpublishedCollection": {
+    "name": "Auth",
+    "pageId": "Configuración",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

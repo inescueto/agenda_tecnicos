@@ -1,0 +1,8 @@
+INSERT INTO personal (nombre, email, rol, estado, plaza) 
+VALUES (
+		{{ Input_Nombre.text }},
+		{{Input_Correo.text}},
+		{{ Select_Rol.selectedOptionValue }}, 
+		{{ Select_Estado.selectedOptionValue }}, 
+		{{ Select_Plaza.selectedOptionValue }}
+);

@@ -1,0 +1,45 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 5,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "arrow-right",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "zbb7kqczgw",
+  "leftColumn": 50,
+  "minWidth": 50,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 52,
+  "mobileRightColumn": 56,
+  "mobileTopRow": 3,
+  "needsErrorInfo": false,
+  "onClick": "{{navigateTo('Horario', {}, 'SAME_WINDOW');}}",
+  "parentColumnSpace": 4.732421875,
+  "parentId": "2xi1cj5bxj",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "topRow": 1,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "b1jos8jomy",
+  "widgetName": "IconVerAgenda"
+}

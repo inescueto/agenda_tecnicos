@@ -1,0 +1,7 @@
+UPDATE catalogo_capacitaciones 
+SET id_categoria = {{SelectCat.selectedOptionValue}}, 
+    nombre_requisito = {{InputReq.text}}, 
+    id_modalidad = {{SelectMod.selectedOptionValue || NULL}},  
+    id_maquina_ref = {{SelectMaq.selectedOptionValue || NULL}}, 
+    id_especialidad_ref = {{SelectEsp.selectedOptionValue || NULL}} 
+WHERE id_requisito = {{TableCatalogo.triggeredRow.id_requisito}};

@@ -1,0 +1,47 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 5,
+  "boxShadow": "none",
+  "buttonColor": "#3b82f6",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "arrow-right",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "cmjllrywkp",
+  "leftColumn": 40,
+  "minWidth": 50,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 19,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onClick": "{{ storeValue('mesOffset', (appsmith.store.mesOffset || 0) + 1) }}",
+  "parentColumnSpace": 17.3447265625,
+  "parentId": "boneus12pk",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 44,
+  "topRow": 1,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "mr52docro7",
+  "widgetName": "IconButton1Copy"
+}

@@ -1,0 +1,34 @@
+SELECT 
+    m.id_maquina,
+    m.nombre_maquina,
+    md.nombre_modalidad as modalidad,
+    
+    -- MAÑANA
+    MAX(CASE WHEN a.turno = 'Mañana' THEN a.id_agenda END) as id_agenda_mañana,
+    MAX(CASE WHEN a.turno = 'Mañana' THEN a.estado END) as estado_mañana,
+    MAX(CASE WHEN a.turno = 'Mañana' THEN a.id_especialidad END) as id_esp_mañana,
+    MAX(CASE WHEN a.turno = 'Mañana' THEN COALESCE(e.nombre_especialidad, m.nombre_maquina) END) as esp_mañana,
+    
+    -- TARDE
+    MAX(CASE WHEN a.turno = 'Tarde' THEN a.id_agenda END) as id_agenda_tarde,
+    MAX(CASE WHEN a.turno = 'Tarde' THEN a.estado END) as estado_tarde,
+    MAX(CASE WHEN a.turno = 'Tarde' THEN a.id_especialidad END) as id_esp_tarde,
+    MAX(CASE WHEN a.turno = 'Tarde' THEN COALESCE(e.nombre_especialidad, m.nombre_maquina) END) as esp_tarde,
+    
+    -- NOCHE
+    MAX(CASE WHEN a.turno = 'Noche' THEN a.id_agenda END) as id_agenda_noche,
+    MAX(CASE WHEN a.turno = 'Noche' THEN a.estado END) as estado_noche,
+    MAX(CASE WHEN a.turno = 'Noche' THEN a.id_especialidad END) as id_esp_noche,
+    MAX(CASE WHEN a.turno = 'Noche' THEN COALESCE(e.nombre_especialidad, m.nombre_maquina) END) as esp_noche
+
+FROM maquinas m
+LEFT JOIN agendas a ON m.id_maquina = a.id_maquina 
+    AND a.dias = {{ SelectDia.selectedOptionValue }}
+LEFT JOIN especialidades e ON a.id_especialidad = e.id_especialidad
+LEFT JOIN modalidades md ON m.id_modalidad = md.id_modalidad
+
+WHERE 
+    ( {{ !SelectModalidad.selectedOptionValue }} OR m.id_modalidad = {{ SelectModalidad.selectedOptionValue }} )
+
+GROUP BY m.id_maquina, m.nombre_maquina, md.nombre_modalidad
+ORDER BY m.nombre_maquina ASC;

@@ -1,0 +1,2 @@
+DELETE FROM festivos 
+WHERE id_festivo = {{TableFestivos.triggeredRow.id_festivo}};

@@ -1,0 +1,4 @@
+SELECT COUNT(*) as total 
+FROM asignaciones 
+WHERE id_tecnico1 = {{ appsmith.store.id_borrar }}
+   OR id_tecnico2 = {{ appsmith.store.id_borrar }};

@@ -1,0 +1,28 @@
+SELECT 
+    a.fecha,
+    ag.turno,
+    m.nombre_maquina as sala,
+    COALESCE(e.nombre_especialidad, '') as especialidad,
+    -- Lógica para encontrar el nombre del compañero que NO soy yo
+    CASE 
+        WHEN a.id_tecnico1 = (SELECT id_tecnico FROM personal WHERE email = target.email_sel) 
+        THEN (SELECT nombre FROM personal WHERE id_tecnico = a.id_tecnico2)
+        ELSE (SELECT nombre FROM personal WHERE id_tecnico = a.id_tecnico1)
+    END as compañero
+FROM asignaciones a
+JOIN agendas ag ON a.id_agenda = ag.id_agenda
+JOIN maquinas m ON ag.id_maquina = m.id_maquina
+LEFT JOIN especialidades e ON ag.id_especialidad = e.id_especialidad
+CROSS JOIN (
+    SELECT 
+        CASE 
+            WHEN COALESCE(rol, 'tecnico') IN ('Administrador', 'Coordinador', 'Admin') 
+            THEN COALESCE(NULLIF('{{ appsmith.store.emailTecnico }}', ''), '{{ appsmith.user.email }}')
+            ELSE '{{ appsmith.user.email }}'
+        END as email_sel
+    FROM personal
+    WHERE email = '{{ appsmith.user.email }}'
+) target
+WHERE (a.id_tecnico1 = (SELECT id_tecnico FROM personal WHERE email = target.email_sel)
+   OR a.id_tecnico2 = (SELECT id_tecnico FROM personal WHERE email = target.email_sel))
+ORDER BY a.fecha ASC;

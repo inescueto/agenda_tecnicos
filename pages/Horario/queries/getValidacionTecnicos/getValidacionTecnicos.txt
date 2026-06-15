@@ -1,0 +1,44 @@
+SELECT 
+    p.id_tecnico,
+    p.nombre,
+    p.rol,
+    p.email,
+    
+    -- 1. Calculamos cuántos requisitos de esta agenda específica SÍ cumple el técnico
+    (SELECT COUNT(DISTINCT ar.id_requisito)
+     FROM agendas_requisitos ar
+     INNER JOIN personal_capacitaciones pc ON ar.id_requisito = pc.id_requisito
+     WHERE ar.id_agenda = {{ this.params.idAgenda || appsmith.store.idAgendaSel }} 
+     AND pc.id_tecnico = p.id_tecnico) AS requisitos_cumplidos,
+     
+    -- 2. Obtenemos el total de requisitos que exige esta agenda
+    (SELECT COUNT(*) 
+     FROM agendas_requisitos 
+     WHERE id_agenda = {{ this.params.idAgenda || appsmith.store.idAgendaSel }}) AS total_requisitos,
+
+    -- 3. ¿Cumple el 100% de los requisitos? (Apto = 1, No Apto = 0)
+    IF(
+        (SELECT COUNT(DISTINCT ar.id_requisito)
+         FROM agendas_requisitos ar
+         INNER JOIN personal_capacitaciones pc ON ar.id_requisito = pc.id_requisito
+         WHERE ar.id_agenda = {{ this.params.idAgenda || appsmith.store.idAgendaSel }} 
+         AND pc.id_tecnico = p.id_tecnico) 
+        >= 
+        (SELECT COUNT(*) 
+         FROM agendas_requisitos 
+         WHERE id_agenda = {{ this.params.idAgenda || appsmith.store.idAgendaSel }}), 
+    1, 0) as es_apto,
+
+    -- 4. Detección de solapamiento (1 = ocupado, 0 = libre)
+    (SELECT COUNT(*)
+     FROM asignaciones a_sub
+     INNER JOIN agendas ag_sub ON a_sub.id_agenda = ag_sub.id_agenda
+     WHERE a_sub.fecha = '{{ appsmith.store.fechaSel }}'
+       AND ag_sub.turno = '{{ appsmith.store.turnoSel }}'
+       AND (a_sub.id_tecnico1 = p.id_tecnico OR a_sub.id_tecnico2 = p.id_tecnico)
+       AND a_sub.id_agenda != {{ this.params.idAgenda || appsmith.store.idAgendaSel }}) AS esta_ocupado
+
+FROM personal p
+WHERE p.estado = 'activo'
+-- ORDENACIÓN INTELIGENTE:
+ORDER BY es_apto DESC, esta_ocupado ASC, requisitos_cumplidos DESC, p.nombre ASC;

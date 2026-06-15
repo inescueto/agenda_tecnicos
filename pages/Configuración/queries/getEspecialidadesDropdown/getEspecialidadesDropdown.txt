@@ -1,0 +1,2 @@
+SELECT id_especialidad as value, nombre_especialidad as label 
+FROM especialidades;

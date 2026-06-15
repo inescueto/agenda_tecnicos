@@ -1,0 +1,10 @@
+SELECT 
+    id_agenda, 
+    id_tecnico1, 
+    id_tecnico2, 
+    fecha, 
+    hora_inicio, 
+    hora_fin
+FROM asignaciones
+WHERE fecha BETWEEN '{{ moment(DateSelect.selectedDate).startOf("isoWeek").format("YYYY-MM-DD") }}' 
+                AND '{{ moment(DateSelect.selectedDate).endOf("isoWeek").format("YYYY-MM-DD") }}';

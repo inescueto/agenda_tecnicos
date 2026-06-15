@@ -1,0 +1,83 @@
+SELECT 
+    m.id_maquina,
+    m.nombre_maquina,
+    md.nombre_modalidad as modalidad,
+    
+    MAX(CASE WHEN a.dias = 'Lunes' AND a.turno = 'Mañana' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Lunes' AND a.turno = 'Mañana' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as lun_m,
+		MAX(CASE WHEN a.dias = 'Lunes' AND a.turno = 'Mañana' THEN a.id_agenda ELSE NULL END) as id_lun_m,
+		
+    MAX(CASE WHEN a.dias = 'Lunes' AND a.turno = 'Tarde' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Lunes' AND a.turno = 'Tarde' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as lun_t,
+		MAX(CASE WHEN a.dias = 'Lunes' AND a.turno = 'Tarde' THEN a.id_agenda ELSE NULL END) as id_lun_t,
+		
+    MAX(CASE WHEN a.dias = 'Lunes' AND a.turno = 'Noche' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Lunes' AND a.turno = 'Noche' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as lun_n,
+		MAX(CASE WHEN a.dias = 'Lunes' AND a.turno = 'Noche' THEN a.id_agenda ELSE NULL END) as id_lun_n,
+    
+    -- MARTES
+    MAX(CASE WHEN a.dias = 'Martes' AND a.turno = 'Mañana' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Martes' AND a.turno = 'Mañana' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as mar_m,
+		MAX(CASE WHEN a.dias = 'Martes' AND a.turno = 'Mañana' THEN a.id_agenda ELSE NULL END) as id_mar_m,
+		
+    MAX(CASE WHEN a.dias = 'Martes' AND a.turno = 'Tarde' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Martes' AND a.turno = 'Tarde' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as mar_t,
+		MAX(CASE WHEN a.dias = 'Martes' AND a.turno = 'Tarde' THEN a.id_agenda ELSE NULL END) as id_mar_t,
+		
+    MAX(CASE WHEN a.dias = 'Martes' AND a.turno = 'Noche' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Martes' AND a.turno = 'Noche' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as mar_n,
+		MAX(CASE WHEN a.dias = 'Martes' AND a.turno = 'Noche' THEN a.id_agenda ELSE NULL END) as id_mar_n,
+		
+   
+    -- MIÉRCOLES
+    MAX(CASE WHEN a.dias = 'Miércoles' AND a.turno = 'Mañana' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Miércoles' AND a.turno = 'Mañana' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as mie_m,
+		MAX(CASE WHEN a.dias = 'Miércoles' AND a.turno = 'Mañana' THEN a.id_agenda ELSE NULL END) as id_mie_m,
+		
+    MAX(CASE WHEN a.dias = 'Miércoles' AND a.turno = 'Tarde' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Miércoles' AND a.turno = 'Tarde' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as mie_t,
+		MAX(CASE WHEN a.dias = 'Miércoles' AND a.turno = 'Tarde' THEN a.id_agenda ELSE NULL END) as id_mie_t,
+		
+    MAX(CASE WHEN a.dias = 'Miércoles' AND a.turno = 'Noche' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Miércoles' AND a.turno = 'Noche' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as mie_n,
+		MAX(CASE WHEN a.dias = 'Miércoles' AND a.turno = 'Noche' THEN a.id_agenda ELSE NULL END) as id_mie_n,
+    
+    -- JUEVES
+    MAX(CASE WHEN a.dias = 'Jueves' AND a.turno = 'Mañana' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Jueves' AND a.turno = 'Mañana' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as jue_m,
+		MAX(CASE WHEN a.dias = 'Jueves' AND a.turno = 'Mañana' THEN a.id_agenda ELSE NULL END) as id_jue_m,
+		
+    MAX(CASE WHEN a.dias = 'Jueves' AND a.turno = 'Tarde' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Jueves' AND a.turno = 'Tarde' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as jue_t,
+		MAX(CASE WHEN a.dias = 'Jueves' AND a.turno = 'Tarde' THEN a.id_agenda ELSE NULL END) as id_jue_t,
+		
+    MAX(CASE WHEN a.dias = 'Jueves' AND a.turno = 'Noche' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Jueves' AND a.turno = 'Noche' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as jue_n,
+		MAX(CASE WHEN a.dias = 'Jueves' AND a.turno = 'Noche' THEN a.id_agenda ELSE NULL END) as id_jue_n,
+    
+    -- VIERNES
+    MAX(CASE WHEN a.dias = 'Viernes' AND a.turno = 'Mañana' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Viernes' AND a.turno = 'Mañana' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as vie_m,
+		MAX(CASE WHEN a.dias = 'Viernes' AND a.turno = 'Mañana' THEN a.id_agenda ELSE NULL END) as id_vie_m,
+		
+    MAX(CASE WHEN a.dias = 'Viernes' AND a.turno = 'Tarde' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Viernes' AND a.turno = 'Tarde' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as vie_t,
+		MAX(CASE WHEN a.dias = 'Viernes' AND a.turno = 'Tarde' THEN a.id_agenda ELSE NULL END) as id_vie_t,
+		
+    MAX(CASE WHEN a.dias = 'Viernes' AND a.turno = 'Noche' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Viernes' AND a.turno = 'Noche' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as vie_n,
+		MAX(CASE WHEN a.dias = 'Viernes' AND a.turno = 'Noche' THEN a.id_agenda ELSE NULL END) as id_vie_n,
+    
+    -- SÁBADO
+    MAX(CASE WHEN a.dias = 'Sábado' AND a.turno = 'Mañana' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Sábado' AND a.turno = 'Mañana' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as sab_m,
+		MAX(CASE WHEN a.dias = 'Sábado' AND a.turno = 'Mañana' THEN a.id_agenda ELSE NULL END) as id_sab_m,
+		
+    MAX(CASE WHEN a.dias = 'Sábado' AND a.turno = 'Tarde' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Sábado' AND a.turno = 'Tarde' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as sab_t,
+		MAX(CASE WHEN a.dias = 'Sábado' AND a.turno = 'Tarde' THEN a.id_agenda ELSE NULL END) as id_sab_t,
+		
+    MAX(CASE WHEN a.dias = 'Sábado' AND a.turno = 'Noche' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Sábado' AND a.turno = 'Noche' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as sab_n,
+		MAX(CASE WHEN a.dias = 'Sábado' AND a.turno = 'Noche' THEN a.id_agenda ELSE NULL END) as id_sab_n,
+    
+    -- DOMINGO
+    MAX(CASE WHEN a.dias = 'Domingo' AND a.turno = 'Mañana' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Domingo' AND a.turno = 'Mañana' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as dom_m,
+		MAX(CASE WHEN a.dias = 'Domingo' AND a.turno = 'Mañana' THEN a.id_agenda ELSE NULL END) as id_dom_m,
+		
+    MAX(CASE WHEN a.dias = 'Domingo' AND a.turno = 'Tarde' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Domingo' AND a.turno = 'Tarde' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as dom_t,
+		MAX(CASE WHEN a.dias = 'Domingo' AND a.turno = 'Tarde' THEN a.id_agenda ELSE NULL END) as id_dom_t,
+		
+    MAX(CASE WHEN a.dias = 'Domingo' AND a.turno = 'Noche' AND a.estado = 'Abierto' THEN 2 WHEN a.dias = 'Domingo' AND a.turno = 'Noche' AND a.estado = 'Cerrado' THEN 1 ELSE 0 END) as dom_n,
+		MAX(CASE WHEN a.dias = 'Domingo' AND a.turno = 'Noche' THEN a.id_agenda ELSE NULL END) as id_dom_n
+    
+FROM maquinas m
+LEFT JOIN agendas a ON m.id_maquina = a.id_maquina
+LEFT JOIN modalidades md ON m.id_modalidad = md.id_modalidad
+ -- Filtro modalidades
+WHERE 
+    ( {{ !SelectModalidad.selectedOptionValue }} OR m.id_modalidad = {{ SelectModalidad.selectedOptionValue }} )
+		
+GROUP BY m.id_maquina, m.nombre_maquina, md.nombre_modalidad;

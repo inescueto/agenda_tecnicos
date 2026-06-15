@@ -1,0 +1,13 @@
+SELECT 
+    -- 1. Técnicos que tienen al menos una asignación hoy 
+    (SELECT COUNT(DISTINCT t) FROM (
+        SELECT id_tecnico1 as t FROM asignaciones WHERE fecha = CURDATE()
+        UNION 
+        SELECT id_tecnico2 FROM asignaciones WHERE fecha = CURDATE()
+    ) as activos) as tecnicos_hoy,
+    
+    -- 2. Total de asignaciones realizadas para hoy
+    (SELECT COUNT(*) FROM asignaciones WHERE fecha = CURDATE()) as asignaciones_hoy,
+    
+    -- 3. Máquinas activas en el sistema
+    (SELECT COUNT(*) FROM maquinas WHERE estado = 'Activa') as maquinas_total;

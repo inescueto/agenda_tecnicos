@@ -1,0 +1,10 @@
+SELECT 
+    m.id_mantenimiento, 
+		m.id_maquina,  
+    ma.nombre_maquina, 
+    m.fecha_inicio, 
+    m.fecha_fin, 
+    m.motivo
+FROM mantenimiento_maquinas m
+JOIN maquinas ma ON m.id_maquina = ma.id_maquina
+ORDER BY m.fecha_inicio DESC;

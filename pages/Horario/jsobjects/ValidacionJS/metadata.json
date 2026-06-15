@@ -1,0 +1,16 @@
+{
+  "gitSyncId": "697c8f869bb6771f6fd6defb_96d66fe9-2d63-4a11-9177-e5e6e16c44d1",
+  "id": "Horario_ValidacionJS",
+  "unpublishedCollection": {
+    "name": "ValidacionJS",
+    "pageId": "Horario",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "configuracionHorarios",
+        "value": "{\n  \"Mañana\": {\n    inicio: \"08:00:00\",\n    fin: \"15:00:00\"\n  },\n  \"Tarde\": {\n    inicio: \"15:00:00\",\n    fin: \"22:00:00\"\n  },\n  \"Noche\": {\n    inicio: \"22:00:00\",\n    fin: \"08:00:00\"\n  }\n}"
+      }
+    ]
+  }
+}

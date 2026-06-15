@@ -1,0 +1,4 @@
+SELECT c.id_requisito, c.nombre_requisito, cat.nombre_categoria
+FROM catalogo_capacitaciones c
+JOIN categorias_capacitaciones cat ON c.id_categoria = cat.id_categoria
+ORDER BY cat.nombre_categoria, c.nombre_requisito;

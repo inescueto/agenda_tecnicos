@@ -1,0 +1,16 @@
+{
+  "gitSyncId": "697c8f869bb6771f6fd6defb_c604d937-8d95-4a3f-8ead-84ab8662ab39",
+  "id": "Agendas_UtilsAgendaSemana",
+  "unpublishedCollection": {
+    "name": "UtilsAgendaSemana",
+    "pageId": "Agendas",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "mapaCache",
+        "value": "{}"
+      }
+    ]
+  }
+}

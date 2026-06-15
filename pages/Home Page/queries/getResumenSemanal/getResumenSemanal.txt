@@ -1,0 +1,8 @@
+SELECT 
+    a.dias,
+    COUNT(a.id_agenda) as huecos_totales,
+    COUNT(asig.id_asignacion) as huecos_cubiertos
+FROM agendas a
+LEFT JOIN asignaciones asig ON a.id_agenda = asig.id_agenda 
+    AND WEEK(asig.fecha, 1) = WEEK(CURDATE(), 1)
+GROUP BY a.dias;

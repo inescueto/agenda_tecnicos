@@ -1,0 +1,63 @@
+SELECT 
+    p.id_tecnico,
+    p.nombre,
+		p.email,
+    p.rol,
+    p.estado,
+    p.plaza,  
+		p.observaciones,
+    
+    -- Capacitaciones Técnicas (Máquinas)
+    JSON_ARRAYAGG(
+        IF(cc.id_categoria IN (1, 2), 
+           JSON_OBJECT('label', cc.nombre_requisito, 'parent', m.nombre_modalidad),  
+           NULL)
+    ) AS lista_capacitaciones,
+		
+		-- Aptitudes 
+    GROUP_CONCAT(DISTINCT 
+        IF(cc.id_categoria = 3, cc.nombre_requisito, NULL) 
+        SEPARATOR ', '
+    ) AS aptitudes,
+    
+    -- Horarios/Turnos
+    GROUP_CONCAT(DISTINCT 
+        IF(cc.id_categoria = 6, cc.nombre_requisito, NULL) 
+        SEPARATOR ', '
+    ) AS turnos,
+    
+    -- IDs consolidados
+    GROUP_CONCAT(DISTINCT cc.id_requisito SEPARATOR ',') AS ids_seleccionados
+
+FROM personal p
+LEFT JOIN personal_capacitaciones pc ON p.id_tecnico = pc.id_tecnico
+LEFT JOIN catalogo_capacitaciones cc ON pc.id_requisito = cc.id_requisito
+LEFT JOIN modalidades m ON cc.id_modalidad = m.id_modalidad
+
+WHERE (
+    p.nombre LIKE {{ "%" + (InputNombre.text || "") + "%" }} 
+    OR CAST(p.id_tecnico AS CHAR) LIKE {{ "%" + (InputNombre.text || "") + "%" }}
+)
+
+
+-- Filtro Modalidad
+AND (
+    {{ !SelectModalidad.selectedOptionValue }} 
+    OR p.id_tecnico IN (
+        SELECT pc2.id_tecnico 
+        FROM personal_capacitaciones pc2
+        JOIN catalogo_capacitaciones cc2 ON pc2.id_requisito = cc2.id_requisito
+        WHERE cc2.id_modalidad = {{ SelectModalidad.selectedOptionValue }}
+    )
+)
+
+GROUP BY 
+    p.id_tecnico, 
+		p.nombre, 
+		p.rol, 
+		p.estado, 
+    p.plaza, 
+		p.observaciones
+ORDER BY p.id_tecnico
+LIMIT {{ TablePersonal.pageSize }}
+OFFSET {{ TablePersonal.pageOffset }};

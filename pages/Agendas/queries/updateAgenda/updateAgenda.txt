@@ -1,0 +1,3 @@
+UPDATE agendas 
+SET id_especialidad = {{ this.params.especialidad }} 
+WHERE id_agenda = {{ this.params.id }};

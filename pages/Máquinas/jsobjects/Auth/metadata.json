@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "69ea04ccf4cb327f11981332_170dcb26-0239-4377-b0c2-3c3daece95b3",
+  "id": "Máquinas_Auth",
+  "unpublishedCollection": {
+    "name": "Auth",
+    "pageId": "Máquinas",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

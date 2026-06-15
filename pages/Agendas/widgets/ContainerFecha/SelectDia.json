@@ -1,0 +1,73 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "0.375rem",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  appsmith.store.diaSeleccionado || \"Lunes\" ))(SelectDia.options, SelectDia.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{ TabsSemana.selectedTab === 'Día' }}",
+  "key": "3la042nfkw",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 14,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 8,
+  "mobileLeftColumn": 37,
+  "mobileRightColumn": 57,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{ storeValue(\"diaSeleccionado\", SelectDia.selectedOptionValue) }}\n",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 17.064453125,
+  "parentId": "acghe1nnch",
+  "parentRowSpace": 10,
+  "placeholderText": "Seleccione Día",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 34,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  {\"label\": \"Lunes\", \"value\": \"Lunes\"},\n  {\"label\": \"Martes\", \"value\": \"Martes\"},\n  {\"label\": \"Miércoles\", \"value\": \"Miércoles\"},\n  {\"label\": \"Jueves\", \"value\": \"Jueves\"},\n  {\"label\": \"Viernes\", \"value\": \"Viernes\"},\n  {\"label\": \"Sábado\", \"value\": \"Sábado\"},\n  {\"label\": \"Domingo\", \"value\": \"Domingo\"}\n]",
+  "topRow": 2,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "qhvas90zn3",
+  "widgetName": "SelectDia"
+}

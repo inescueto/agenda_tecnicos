@@ -1,0 +1,17 @@
+INSERT INTO agendas (
+    id_maquina, 
+    dias, 
+    turno, 
+    estado, 
+    id_especialidad
+)
+VALUES (
+    {{ appsmith.store.maquinaId }},
+    -- Respaldo entre Vista semanal y diaria
+    {{ appsmith.store.diaSeleccionado || SelectDia.selectedOptionValue }}, 
+    {{ appsmith.store.turnoSeleccionado }}, 
+    'Abierto', 
+    {{ this.params.especialidad || null }} 
+);
+-- Recuperación automática del ID autogenerado por MySQL
+SELECT LAST_INSERT_ID() AS id_agenda;

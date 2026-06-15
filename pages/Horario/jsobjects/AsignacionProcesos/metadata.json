@@ -1,0 +1,20 @@
+{
+  "gitSyncId": "697c8f869bb6771f6fd6defb_3a4fde9a-5f3e-43ff-b7fd-8877e4bbb0d0",
+  "id": "Horario_AsignacionProcesos",
+  "unpublishedCollection": {
+    "name": "AsignacionProcesos",
+    "pageId": "Horario",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "configuracionHorarios",
+        "value": "{\n  \"Mañana\": {\n    inicio: \"08:00:00\",\n    fin: \"15:00:00\"\n  },\n  \"Tarde\": {\n    inicio: \"15:00:00\",\n    fin: \"22:00:00\"\n  },\n  \"Noche\": {\n    inicio: \"22:00:00\",\n    fin: \"08:00:00\"\n  }\n}"
+      },
+      {
+        "name": "diasMapa",
+        "value": "{\n  \"Lunes\": 1,\n  \"Martes\": 2,\n  \"Miércoles\": 3,\n  \"Jueves\": 4,\n  \"Viernes\": 5,\n  \"Sábado\": 6,\n  \"Domingo\": 7\n}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+SELECT 
+	id_requisito as value, 
+	nombre_requisito as label 
+FROM catalogo_capacitaciones WHERE id_categoria = 3

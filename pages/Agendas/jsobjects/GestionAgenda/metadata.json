@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "697c8f869bb6771f6fd6defb_bf977228-90be-4281-aa9d-94c86e046690",
+  "id": "Agendas_GestionAgenda",
+  "unpublishedCollection": {
+    "name": "GestionAgenda",
+    "pageId": "Agendas",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

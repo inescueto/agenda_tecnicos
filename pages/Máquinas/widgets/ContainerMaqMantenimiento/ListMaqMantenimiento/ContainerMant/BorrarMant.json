@@ -1,0 +1,48 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "buttonColor": "#ef4444",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "trash",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "x14xialy1t",
+  "leftColumn": 59,
+  "minWidth": 50,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 54,
+  "mobileRightColumn": 58,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onClick": "{{ \n  storeValue('idMantBorrar', currentItem.id_mantenimiento);\n\nstoreValue('idMaqBorrar', currentItem.id_maquina);\n\nstoreValue('nombreMaqBorrar', currentItem.nombre_maquina);\n  showModal('ModalConfirmarBorrado');\n}}\n",
+  "parentColumnSpace": 5.728515625,
+  "parentId": "6n56lpe5z4",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "topRow": 3,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "cboxmbz1jl",
+  "widgetName": "BorrarMant"
+}

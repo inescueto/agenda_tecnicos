@@ -1,0 +1,12 @@
+SELECT p.* 
+FROM personal p
+CROSS JOIN (
+    SELECT COALESCE(rol, 'tecnico') as rol_auth 
+    FROM personal 
+    WHERE email = '{{ appsmith.user.email }}'
+) auth
+WHERE p.email = CASE 
+    WHEN auth.rol_auth IN ('Administrador', 'Coordinador') 
+    THEN COALESCE(NULLIF('{{ appsmith.store.emailTecnico }}', ''), '{{ appsmith.user.email }}')
+    ELSE '{{ appsmith.user.email }}'
+END;

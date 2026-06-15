@@ -1,0 +1,153 @@
+SELECT 
+    m.id_maquina,
+    m.nombre_maquina,
+    md.nombre_modalidad as modalidad,
+		
+	-- LUNES
+    MAX(CASE 
+        WHEN (SELECT COUNT(*) FROM mantenimiento_maquinas mm 
+              WHERE mm.id_maquina = m.id_maquina 
+              AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").format("YYYY-MM-DD") }}' BETWEEN mm.fecha_inicio AND mm.fecha_fin) > 0 
+        THEN 'MANTENIMIENTO'
+        WHEN a.dias = 'Lunes' THEN CONCAT_WS(' / ', p1.nombre, p2.nombre) 
+    END) as lunes_personal,
+    MAX(CASE WHEN a.dias = 'Lunes' THEN a.id_agenda END) as lunes_id_agenda,
+	MAX(CASE WHEN a.dias = 'Lunes' THEN e.nombre_especialidad END) as lunes_especialidad,
+	MAX(CASE WHEN a.dias = 'Lunes' THEN f_lun.descripcion END) as lunes_festivo,
+   
+    MAX(CASE WHEN a.dias = 'Lunes' THEN asig.id_tecnico1 END) as lunes_id1,
+    MAX(CASE WHEN a.dias = 'Lunes' THEN p1.nombre END) as lunes_nom1,
+    MAX(CASE WHEN a.dias = 'Lunes' THEN asig.id_tecnico2 END) as lunes_id2,
+    MAX(CASE WHEN a.dias = 'Lunes' THEN p2.nombre END) as lunes_nom2,
+    
+    -- MARTES
+    MAX(CASE 
+        WHEN (SELECT COUNT(*) FROM mantenimiento_maquinas mm 
+              WHERE mm.id_maquina = m.id_maquina 
+              AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(1, "days").format("YYYY-MM-DD") }}' BETWEEN mm.fecha_inicio AND mm.fecha_fin) > 0 
+        THEN 'MANTENIMIENTO'
+        WHEN a.dias = 'Martes' THEN CONCAT_WS(' / ', p1.nombre, p2.nombre) 
+    END) as martes_personal,
+    MAX(CASE WHEN a.dias = 'Martes' THEN a.id_agenda END) as martes_id_agenda,
+	  MAX(CASE WHEN a.dias = 'Martes' THEN e.nombre_especialidad END) as martes_especialidad,
+	  MAX(CASE WHEN a.dias = 'Martes' THEN f_mar.descripcion END) as martes_festivo,
+		
+	  MAX(CASE WHEN a.dias = 'Martes' THEN asig.id_tecnico1 END) as martes_id1,
+    MAX(CASE WHEN a.dias = 'Martes' THEN p1.nombre END) as martes_nom1,
+    MAX(CASE WHEN a.dias = 'Martes' THEN asig.id_tecnico2 END) as martes_id2,
+    MAX(CASE WHEN a.dias = 'Martes' THEN p2.nombre END) as martes_nom2,
+		
+    -- MIÉRCOLES
+    MAX(CASE 
+        WHEN (SELECT COUNT(*) FROM mantenimiento_maquinas mm 
+              WHERE mm.id_maquina = m.id_maquina 
+              AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(2, "days").format("YYYY-MM-DD") }}' BETWEEN mm.fecha_inicio AND mm.fecha_fin) > 0 
+        THEN 'MANTENIMIENTO'
+        WHEN a.dias = 'Miércoles' THEN CONCAT_WS(' / ', p1.nombre, p2.nombre) 
+    END) as miercoles_personal,
+    MAX(CASE WHEN a.dias = 'Miércoles' THEN a.id_agenda END) as miercoles_id_agenda,
+	  MAX(CASE WHEN a.dias = 'Miércoles' THEN e.nombre_especialidad END) as miercoles_especialidad,
+	  MAX(CASE WHEN a.dias = 'Miércoles' THEN f_mie.descripcion END) as miercoles_festivo,
+		
+	  MAX(CASE WHEN a.dias = 'Miércoles' THEN asig.id_tecnico1 END) as miercoles_id1,
+    MAX(CASE WHEN a.dias = 'Miércoles' THEN p1.nombre END) as miercoles_nom1,
+    MAX(CASE WHEN a.dias = 'Miércoles' THEN asig.id_tecnico2 END) as miercoles_id2,
+    MAX(CASE WHEN a.dias = 'Miércoles' THEN p2.nombre END) as miercoles_nom2,
+		
+    -- JUEVES
+    MAX(CASE 
+        WHEN (SELECT COUNT(*) FROM mantenimiento_maquinas mm 
+              WHERE mm.id_maquina = m.id_maquina 
+              AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(3, "days").format("YYYY-MM-DD") }}' BETWEEN mm.fecha_inicio AND mm.fecha_fin) > 0 
+        THEN 'MANTENIMIENTO'
+        WHEN a.dias = 'Jueves' THEN CONCAT_WS(' / ', p1.nombre, p2.nombre) 
+    END) as jueves_personal,
+    MAX(CASE WHEN a.dias = 'Jueves' THEN a.id_agenda END) as jueves_id_agenda,
+	  MAX(CASE WHEN a.dias = 'Jueves' THEN e.nombre_especialidad END) as jueves_especialidad,
+	  MAX(CASE WHEN a.dias = 'Jueves' THEN f_jue.descripcion END) as jueves_festivo,
+		
+	  MAX(CASE WHEN a.dias = 'Jueves' THEN asig.id_tecnico1 END) as jueves_id1,
+    MAX(CASE WHEN a.dias = 'Jueves' THEN p1.nombre END) as jueves_nom1,
+    MAX(CASE WHEN a.dias = 'Jueves' THEN asig.id_tecnico2 END) as jueves_id2,
+    MAX(CASE WHEN a.dias = 'Jueves' THEN p2.nombre END) as jueves_nom2,
+		
+    -- VIERNES
+    MAX(CASE 
+        WHEN (SELECT COUNT(*) FROM mantenimiento_maquinas mm 
+              WHERE mm.id_maquina = m.id_maquina 
+              AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(4, "days").format("YYYY-MM-DD") }}' BETWEEN mm.fecha_inicio AND mm.fecha_fin) > 0 
+        THEN 'MANTENIMIENTO'
+        WHEN a.dias = 'Viernes' THEN CONCAT_WS(' / ', p1.nombre, p2.nombre) 
+    END) as viernes_personal,
+    MAX(CASE WHEN a.dias = 'Viernes' THEN a.id_agenda END) as viernes_id_agenda,
+	  MAX(CASE WHEN a.dias = 'Viernes' THEN e.nombre_especialidad END) as viernes_especialidad,
+	  MAX(CASE WHEN a.dias = 'Viernes' THEN f_vie.descripcion END) as viernes_festivo,
+		
+	  MAX(CASE WHEN a.dias = 'Viernes' THEN asig.id_tecnico1 END) as viernes_id1,
+    MAX(CASE WHEN a.dias = 'Viernes' THEN p1.nombre END) as viernes_nom1,
+    MAX(CASE WHEN a.dias = 'Viernes' THEN asig.id_tecnico2 END) as viernes_id2,
+    MAX(CASE WHEN a.dias = 'Viernes' THEN p2.nombre END) as viernes_nom2,
+		
+	-- SÁBADO
+    MAX(CASE 
+        WHEN (SELECT COUNT(*) FROM mantenimiento_maquinas mm 
+              WHERE mm.id_maquina = m.id_maquina 
+              AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(5, "days").format("YYYY-MM-DD") }}' BETWEEN mm.fecha_inicio AND mm.fecha_fin) > 0 
+        THEN 'MANTENIMIENTO'
+        WHEN a.dias = 'Sábado' THEN CONCAT_WS(' / ', p1.nombre, p2.nombre) 
+    END) as sabado_personal,
+    MAX(CASE WHEN a.dias = 'Sábado' THEN a.id_agenda END) as sabado_id_agenda,
+	  MAX(CASE WHEN a.dias = 'Sábado' THEN e.nombre_especialidad END) as sabado_especialidad,
+	  MAX(CASE WHEN a.dias = 'Sábado' THEN f_sab.descripcion END) as sabado_festivo,
+
+  	MAX(CASE WHEN a.dias = 'Sábado' THEN asig.id_tecnico1 END) as sabado_id1,
+    MAX(CASE WHEN a.dias = 'Sábado' THEN p1.nombre END) as sabado_nom1,
+    MAX(CASE WHEN a.dias = 'Sábado' THEN asig.id_tecnico2 END) as sabado_id2,
+    MAX(CASE WHEN a.dias = 'Sábado' THEN p2.nombre END) as sabado_nom2,
+		
+	-- DOMINGO
+     MAX(CASE 
+        WHEN (SELECT COUNT(*) FROM mantenimiento_maquinas mm 
+              WHERE mm.id_maquina = m.id_maquina 
+              AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(6, "days").format("YYYY-MM-DD") }}' BETWEEN mm.fecha_inicio AND mm.fecha_fin) > 0 
+        THEN 'MANTENIMIENTO'
+        WHEN a.dias = 'Domingo' THEN CONCAT_WS(' / ', p1.nombre, p2.nombre) 
+    END) as domingo_personal,
+    MAX(CASE WHEN a.dias = 'Domingo' THEN a.id_agenda END) as domingo_id_agenda,
+  	MAX(CASE WHEN a.dias = 'Domingo' THEN e.nombre_especialidad END) as domingo_especialidad,
+  	MAX(CASE WHEN a.dias = 'Domingo' THEN f_dom.descripcion END) as domingo_festivo,
+
+  	MAX(CASE WHEN a.dias = 'Domingo' THEN asig.id_tecnico1 END) as domingo_id1,
+    MAX(CASE WHEN a.dias = 'Domingo' THEN p1.nombre END) as domingo_nom1,
+    MAX(CASE WHEN a.dias = 'Domingo' THEN asig.id_tecnico2 END) as domingo_id2,
+    MAX(CASE WHEN a.dias = 'Domingo' THEN p2.nombre END) as domingo_nom2
+		
+	
+FROM maquinas m
+-- 1. Unimos con TODAS las agendas posibles para el turno seleccionado
+INNER JOIN agendas a ON m.id_maquina = a.id_maquina 
+    AND a.turno = {{ SelectTurno.selectedTab }}
+	AND a.estado = 'Abierto'
+		
+LEFT JOIN especialidades e ON a.id_especialidad = e.id_especialidad
+LEFT JOIN modalidades md ON m.id_modalidad = md.id_modalidad
+
+-- UNIMOS CON LA TABLA DE FESTIVOS (Calculando la fecha de cada día de la semana)
+LEFT JOIN festivos f_lun ON f_lun.fecha = '{{ moment(DateSelect.selectedDate).startOf("isoWeek").format("YYYY-MM-DD") }}'
+LEFT JOIN festivos f_mar ON f_mar.fecha = '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(1, "days").format("YYYY-MM-DD") }}'
+LEFT JOIN festivos f_mie ON f_mie.fecha = '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(2, "days").format("YYYY-MM-DD") }}'
+LEFT JOIN festivos f_jue ON f_jue.fecha = '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(3, "days").format("YYYY-MM-DD") }}'
+LEFT JOIN festivos f_vie ON f_vie.fecha = '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(4, "days").format("YYYY-MM-DD") }}'
+LEFT JOIN festivos f_sab ON f_sab.fecha = '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(5, "days").format("YYYY-MM-DD") }}'
+LEFT JOIN festivos f_dom ON f_dom.fecha = '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(6, "days").format("YYYY-MM-DD") }}'
+
+-- 2. Unimos con las asignaciones de LA SEMANA SELECCIONADA mediante rango indexable (Ultra-rápido)
+LEFT JOIN asignaciones asig ON a.id_agenda = asig.id_agenda 
+    AND asig.fecha BETWEEN '{{ moment(DateSelect.selectedDate).startOf("isoWeek").format("YYYY-MM-DD") }}' 
+                       AND '{{ moment(DateSelect.selectedDate).startOf("isoWeek").add(6, "days").format("YYYY-MM-DD") }}'
+
+LEFT JOIN personal p1 ON asig.id_tecnico1 = p1.id_tecnico
+LEFT JOIN personal p2 ON asig.id_tecnico2 = p2.id_tecnico
+WHERE m.estado IN ('Activa', 'Mantenimiento')
+AND ({{ !SelectModalidad.selectedOptionValue }} OR m.id_modalidad = {{ SelectModalidad.selectedOptionValue }})
+GROUP BY m.id_maquina, m.nombre_maquina, md.nombre_modalidad;

@@ -1,0 +1,5 @@
+SELECT 
+    id_especialidad AS value,
+    nombre_especialidad AS label
+FROM especialidades
+ORDER BY nombre_especialidad;

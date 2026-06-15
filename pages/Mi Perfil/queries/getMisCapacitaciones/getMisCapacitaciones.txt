@@ -1,0 +1,23 @@
+SELECT 
+    c.nombre_requisito, 
+    m.nombre_modalidad as modalidad, 
+    cat.nombre_categoria
+FROM personal_capacitaciones pc
+JOIN catalogo_capacitaciones c ON pc.id_requisito = c.id_requisito
+JOIN categorias_capacitaciones cat ON c.id_categoria = cat.id_categoria
+LEFT JOIN modalidades m ON c.id_modalidad = m.id_modalidad
+CROSS JOIN (
+    SELECT COALESCE(rol, 'tecnico') as rol_auth 
+    FROM personal 
+    WHERE email = '{{ appsmith.user.email }}'
+) auth
+WHERE pc.id_tecnico = (
+    SELECT id_tecnico 
+    FROM personal 
+    WHERE email = CASE 
+        WHEN auth.rol_auth IN ('Administrador', 'Coordinador', 'Admin') 
+        THEN COALESCE(NULLIF('{{ appsmith.store.emailTecnico }}', ''), '{{ appsmith.user.email }}')
+        ELSE '{{ appsmith.user.email }}'
+    END
+);
+

@@ -1,0 +1,2 @@
+DELETE FROM agendas_requisitos 
+WHERE id_agenda = {{ this.params.id }};

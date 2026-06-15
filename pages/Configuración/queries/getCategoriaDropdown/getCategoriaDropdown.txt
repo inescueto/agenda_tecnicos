@@ -1,0 +1,3 @@
+SELECT id_categoria as value, 
+nombre_categoria as label 
+FROM categorias_capacitaciones;

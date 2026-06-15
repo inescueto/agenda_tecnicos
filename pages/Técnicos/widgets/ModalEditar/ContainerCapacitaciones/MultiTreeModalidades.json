@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowClear": false,
+  "animateLoading": true,
+  "borderRadius": "0.375rem",
+  "bottomRow": 14,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ \n  TablePersonal.triggeredRow.ids_seleccionados \n  ? TablePersonal.triggeredRow.ids_seleccionados.split(',').map(Number) \n  : [] \n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "options"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "expandAll": false,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "kzxe271jl6",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "BOLD",
+  "labelText": "Modalidades",
+  "labelTextColor": "#71717a",
+  "labelTextSize": "0.875rem",
+  "labelTooltip": "",
+  "labelWidth": 5,
+  "leftColumn": 4,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 12,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 5,
+  "mode": "SHOW_ALL",
+  "needsErrorInfo": false,
+  "options": "{{\n  (() => {\n    const data = getOpcionesTree.data;\n    const tree = {};\n    \n    data.forEach(item => {\n      if (!tree[item.parent]) {\n        tree[item.parent] = {\n          label: item.parent,\n          value: item.parent, // El ID del grupo\n          children: []\n        };\n      }\n      tree[item.parent].children.push({\n        label: item.label,\n        value: item.value\n      });\n    });\n    \n    return Object.values(tree);\n  })()\n}}",
+  "originalBottomRow": 24,
+  "originalTopRow": 17,
+  "parentColumnSpace": 8.65234375,
+  "parentId": "475z8gpo0v",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option(s)",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "shouldScrollContents": true,
+  "topRow": 7,
+  "type": "MULTI_SELECT_TREE_WIDGET",
+  "version": 1,
+  "widgetId": "t4uwyyghl7",
+  "widgetName": "MultiTreeModalidades"
+}

@@ -1,0 +1,8 @@
+SELECT 
+    cc.id_requisito as value, 
+    cc.nombre_requisito as label,
+    m.nombre_modalidad as parent 
+FROM catalogo_capacitaciones cc
+LEFT JOIN modalidades m ON cc.id_modalidad = m.id_modalidad
+WHERE cc.id_categoria IN (1, 2)
+ORDER BY m.nombre_modalidad, cc.nombre_requisito;

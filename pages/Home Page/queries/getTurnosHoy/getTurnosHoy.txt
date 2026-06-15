@@ -1,0 +1,11 @@
+SELECT 
+    asig.id_asignacion,
+    p.nombre as nombre_tecnico,
+    m.nombre_maquina,
+    a.turno
+FROM asignaciones asig
+INNER JOIN agendas a ON asig.id_agenda = a.id_agenda
+INNER JOIN maquinas m ON a.id_maquina = m.id_maquina
+LEFT JOIN personal p ON asig.id_tecnico1 = p.id_tecnico
+WHERE asig.fecha = CURDATE()
+ORDER BY FIELD(a.turno, 'Mañana', 'Tarde', 'Noche'), m.nombre_maquina;

@@ -1,0 +1,3 @@
+UPDATE maquinas 
+SET estado = {{ TableMaquinas.updatedRow.estado }} 
+WHERE id_maquina = {{ TableMaquinas.updatedRow.id_maquina }};

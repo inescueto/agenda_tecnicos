@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonColor": "{{ \n  currentItem.lun_m === 2 ? '#D4EDDA' : \n  currentItem.lum_m === 1 ? '#FEE2E2' : \n '#F1F5F9'                  \n}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "w8lk05cw70",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 9,
+  "mobileLeftColumn": 6,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 5,
+  "needsErrorInfo": false,
+  "onClick": "{{ \n  GestionAgendaSemanal.procesarClickCid(\n    currentItem.id_lun_m, \n    currentItem.id_maquina, \n    'Lunes', \n    'Mañana', \n    currentItem.modalidad, \n    currentItem.lun_m\n  ) \n}}",
+  "parentColumnSpace": 3.392624855041504,
+  "parentId": "j6kj7yrzh1",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 23,
+  "text": "M",
+  "topRow": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "3wmp4c5cek",
+  "widgetName": "ButtonLM"
+}

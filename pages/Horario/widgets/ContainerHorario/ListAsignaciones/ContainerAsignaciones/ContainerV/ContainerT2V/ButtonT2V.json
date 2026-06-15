@@ -1,0 +1,65 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{ \"100px; font-size: 10px; padding: 0px 0px; line-height: 1;\" }}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{ AsignacionUI.obtenerColorAvatar(currentItem.viernes_id2) }}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "text"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "zhnyuwrhyj",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 18,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{ \n  AsignacionProcesos.prepararAsignacion(\n    currentItem.viernes_id_agenda, \n    \"Viernes\", \n    SelectTurno.selectedTab, \n    [{id: currentItem.viernes_id1, nombre: currentItem.viernes_nom1}, {id: currentItem.viernes_id2, nombre: currentItem.viernes_nom2}].filter(t => t.id),\n\t\tcurrentItem.nombre_maquina,\ncurrentItem.viernes_especialidad,\ncurrentItem.modalidad\n)\n}}",
+  "parentColumnSpace": 2.51708984375,
+  "parentId": "w7eszyodd1",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 7,
+  "text": "{{ AsignacionUI.obtenerIniciales(currentItem.viernes_nom2) }}",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "arbxx99feo",
+  "widgetName": "ButtonT2V"
+}

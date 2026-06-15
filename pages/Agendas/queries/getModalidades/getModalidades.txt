@@ -1,0 +1,5 @@
+SELECT 
+	id_modalidad as value, 
+	nombre_modalidad as label
+FROM modalidades 
+ORDER BY nombre_modalidad ASC;

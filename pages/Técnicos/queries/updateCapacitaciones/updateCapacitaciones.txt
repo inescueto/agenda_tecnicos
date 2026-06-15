@@ -1,0 +1,39 @@
+START TRANSACTION;
+
+-- 1. Actualizamos datos maestros
+UPDATE personal SET 
+    nombre = '{{ InputName.text }}',
+    rol = '{{ SelectRol.selectedOptionValue }}',
+		email ='{{InputCorreo.text}}',
+    estado = '{{ SelectEstado.selectedOptionValue }}',
+    plaza = '{{ SelectPlaza.selectedOptionValue }}',
+    observaciones = '{{ InputObservaciones.text }}'
+WHERE id_tecnico = {{ appsmith.store.id_editar }};
+
+-- 2. Borramos capacitaciones anteriores
+DELETE FROM personal_capacitaciones 
+WHERE id_tecnico = {{ appsmith.store.id_editar }};
+
+-- 3. Insertamos limpiando los datos
+{{ 
+  (() => {
+    const seleccionados = [
+      ...MultiTreeModalidades.selectedOptionValues, 
+      ...MultiSelectHorarios.selectedOptionValues,
+			...MultiSelectAptitudes.selectedOptionValues
+    ];
+ 
+    // Quitamos valores nulos, duplicados y nos aseguramos de que sean números
+    const idsLimpios = [...new Set(seleccionados)]
+      .filter(id => id !== null && id !== undefined && !isNaN(id) && id !== "");
+
+    if (idsLimpios.length > 0) {
+      const values = idsLimpios.map(id => `(${appsmith.store.id_editar}, ${id})`).join(",");
+      return `INSERT INTO personal_capacitaciones (id_tecnico, id_requisito) VALUES ${values};`;
+    } else {
+      return "-- No hay IDs válidos para insertar";
+    }
+  })() 
+}}
+
+COMMIT;

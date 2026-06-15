@@ -1,0 +1,63 @@
+{
+  "animateLoading": true,
+  "borderRadius": "0.375rem",
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "buttonColor": "#3b82f6",
+  "buttonVariant": "{{GestionAgenda.obtenerVarianteIcono(currentItem.id_agenda_tarde)}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "iconName"
+    },
+    {
+      "key": "buttonVariant"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "iconName"
+    },
+    {
+      "key": "buttonVariant"
+    },
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "{{GestionAgenda.obtenerIcono(currentItem.id_agenda_tarde)}}",
+  "isDisabled": "{{ !checkUser.data[0] || checkUser.data[0].rol === 'tecnico' }}\n",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "1p0w4hz5ii",
+  "leftColumn": 49,
+  "minWidth": 50,
+  "mobileBottomRow": 18,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 51,
+  "mobileTopRow": 14,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  GestionAgenda.editarAgenda(\n    currentItem.id_agenda_tarde, \n    currentItem.id_maquina, \n    'Tarde', \n    currentItem.modalidad\n  )\n}}",
+  "parentColumnSpace": 3.91552734375,
+  "parentId": "41oks48koi",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "topRow": 14,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "hon85a3cq0",
+  "widgetName": "IconEditT"
+}

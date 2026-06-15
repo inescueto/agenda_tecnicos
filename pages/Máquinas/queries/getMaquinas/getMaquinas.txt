@@ -1,0 +1,25 @@
+SELECT 
+    m.id_maquina,
+    m.nombre_maquina,
+    md.nombre_modalidad as modalidad,
+    m.estado,
+    m.id_modalidad
+FROM maquinas m
+LEFT JOIN modalidades md ON m.id_modalidad = md.id_modalidad 
+
+WHERE (
+    -- 1. Filtro de Nombre 
+    nombre_maquina LIKE {{ "%" + (InputNombre.text || "") + "%" }}
+    OR CAST(id_maquina AS CHAR) LIKE {{ "%" + (InputNombre.text || "") + "%" }}
+)
+AND (
+    -- 2. Filtro de Modalidad 
+    {{ !SelectModalidadMaquina.selectedOptionValue || SelectModalidadMaquina.selectedOptionValue === "" || SelectModalidadMaquina.selectedOptionValue === "TODAS" }} 
+    OR m.id_modalidad = {{ SelectModalidadMaquina.selectedOptionValue }}
+)
+AND (
+    -- 3. Filtro de Estado
+    {{ !SelectEstadoMaquina.selectedOptionValue || SelectEstadoMaquina.selectedOptionValue === "TODOS" }} 
+    OR estado = {{ SelectEstadoMaquina.selectedOptionValue }}
+)
+ORDER BY id_maquina DESC;

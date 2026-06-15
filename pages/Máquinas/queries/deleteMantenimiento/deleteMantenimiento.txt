@@ -1,0 +1,5 @@
+DELETE FROM mantenimiento_maquinas 
+WHERE id_mantenimiento = {{ appsmith.store.idMantBorrar }};
+
+
+

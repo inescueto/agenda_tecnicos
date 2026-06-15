@@ -1,0 +1,3 @@
+SELECT id_requisito 
+FROM agendas_requisitos 
+WHERE id_agenda = {{ this.params.id || appsmith.store.idGestion }};

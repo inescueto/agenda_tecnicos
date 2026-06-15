@@ -1,0 +1,2 @@
+DELETE FROM capacitaciones 
+WHERE id_tecnico = {{ appsmith.store.id_editar }};
