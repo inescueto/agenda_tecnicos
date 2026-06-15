@@ -46,7 +46,7 @@
   "mobileRightColumn": 18,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onClick": "{{ \n  AsignacionProcesos.prepararAsignacion(\n    currentItem.domingo_id_agenda, \n    \"Domingo\", \n    SelectTurno.selectedTab, \n    [{id: currentItem.domingo_id1, nombre: currentItem.domingo_nom1}, {id: currentItem.lunes_id2, nombre: currentItem.domingo_nom2}].filter(t => t.id),\n\t\tcurrentItem.nombre_maquina,\ncurrentItem.domingo_especialidad,\ncurrentItem.modalidad\n)\n}}",
+  "onClick": "{{ \n  AsignacionProcesos.prepararAsignacion(\n    currentItem.domingo_id_agenda, \n    \"Domingo\", \n    SelectTurno.selectedTab, \n    [{id: currentItem.domingo_id1, nombre: currentItem.domingo_nom1}, {id: currentItem.domingo_id2, nombre: currentItem.domingo_nom2}].filter(t => t.id),\n\t\tcurrentItem.nombre_maquina,\ncurrentItem.domingo_especialidad,\ncurrentItem.modalidad\n)\n}}",
   "parentColumnSpace": 2.51708984375,
   "parentId": "iba5hhsuht",
   "parentRowSpace": 10,
